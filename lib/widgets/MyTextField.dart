@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../colors.dart';
 
 class MyTextField extends StatelessWidget {
+  int? maxletter;
   final String mytextfieldtext;
   final IconData? mysufixicon;
   Function()? mysufixclick;
@@ -20,11 +22,13 @@ class MyTextField extends StatelessWidget {
     this.mykeyboardtype,
     this.myvalidate,
     this.mycontroler,
+    this.maxletter,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: maxletter,
       controller: mycontroler,
       validator: myvalidate,
       obscureText: showpass,

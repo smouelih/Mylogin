@@ -1,15 +1,16 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mylogin/colors.dart';
-
 import 'package:mylogin/screens/HomeScreen.dart';
 import 'package:mylogin/screens/LoginScreen.dart';
 import 'package:mylogin/widgets/MyButton.dart';
 import 'package:mylogin/widgets/MyTextField.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SignupScreen extends StatefulWidget {
-  SignupScreen({super.key});
+  const SignupScreen({super.key});
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -122,13 +123,13 @@ class _SignupScreenState extends State<SignupScreen> {
                       final isvalidate = keyform.currentState!.validate();
 
                       if (isvalidate) {
-                        Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen(
-                                    name: namecontroler.text,
-                                    email: emailcontroler.text,
-                                    password: passwordcontroler.text)),
-                            (route) => false);
+                        Get.offAll(
+                          HomeScreen(
+                            name: namecontroler.text,
+                            email: emailcontroler.text,
+                            password: passwordcontroler.text,
+                          ),
+                        );
                       }
                     },
                   ),
@@ -143,15 +144,21 @@ class _SignupScreenState extends State<SignupScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          launchUrlString('https://www.google.com/');
+                        },
                         child: SvgPicture.asset('images/google.svg'),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          launchUrlString('https://www.facebook.com/');
+                        },
                         child: SvgPicture.asset('images/facebook.svg'),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          launchUrlString('https://www.icloud.com/?id=123');
+                        },
                         child: SvgPicture.asset('images/apple.svg'),
                       ),
                     ],
@@ -164,8 +171,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       SizedBox(width: 7),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => LoginScreen()));
+                          Get.off(LoginScreen());
                         },
                         child: Text(
                           'Log in',

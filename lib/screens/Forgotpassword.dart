@@ -1,10 +1,10 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mylogin/colors.dart';
-import 'package:mylogin/main.dart';
 import 'package:mylogin/screens/HomeScreen.dart';
-import 'package:mylogin/screens/SignupScreen.dart';
+import 'package:mylogin/screens/VerificationScreen.dart';
 import 'package:mylogin/widgets/MyButton.dart';
 import 'package:mylogin/widgets/MyTextField.dart';
 
@@ -12,14 +12,15 @@ class ForgotpasswordScreen extends StatefulWidget {
   ForgotpasswordScreen({super.key});
 
   @override
-  State<ForgotpasswordScreen> createState() => _ForgotpasswordscreeSState();
+  State<ForgotpasswordScreen> createState() => _ForgotpasswordScreenState();
 }
 
-class _ForgotpasswordscreeSState extends State<ForgotpasswordScreen> {
+class _ForgotpasswordScreenState extends State<ForgotpasswordScreen> {
   bool mypass = true;
+
   var keyform = GlobalKey<FormState>();
-  TextEditingController emailcontroler = TextEditingController();
-  TextEditingController passwordcontroler = TextEditingController();
+
+  TextEditingController phonecontroler = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class _ForgotpasswordscreeSState extends State<ForgotpasswordScreen> {
                     ),
                   ),
                   const Text(
-                    'Enter your email or phone numner and we will send you a verfication code',
+                    'Enter your phone number and we will send you a verfication code',
                     style: TextStyle(
                       fontSize: 14,
                       letterSpacing: 1.7,
@@ -66,19 +67,28 @@ class _ForgotpasswordscreeSState extends State<ForgotpasswordScreen> {
                   ),
                   SizedBox(height: 40),
                   MyTextField(
-                    mycontroler: emailcontroler,
-                    myvalidate: (email) {
-                      if (email.isEmpty) {
+                    mycontroler: phonecontroler,
+                    myvalidate: (phone) {
+                      if (phone.isEmpty) {
                         return 'This input sould not be empty !';
-                      } else if (!EmailValidator.validate(email)) {
-                        return 'Enter a valid email or number';
-                      } else {
-                        return null;
+                      } else if (phone.length < 10) {
+                        return 'Enter a valide phone number';
                       }
                     },
-                    mykeyboardtype: TextInputType.emailAddress,
+                    mykeyboardtype: TextInputType.phone,
                     showpass: false,
-                    mytextfieldtext: 'Enter your email Or number',
+                    mytextfieldtext: 'Enter your phone number',
+                  ),
+                  MyTextField(
+                    maxletter: 5,
+                    mykeyboardtype: TextInputType.emailAddress,
+                    myvalidate: (test){
+                      if (test.isEmpty){
+                        return 'text';
+                      }
+                    },
+                    mytextfieldtext: 'test',
+                    showpass: false,
                   ),
                   SizedBox(height: 40),
                   MyButton(
@@ -91,13 +101,9 @@ class _ForgotpasswordscreeSState extends State<ForgotpasswordScreen> {
                       final isvalidate = keyform.currentState!.validate();
 
                       if (isvalidate) {
-                        Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen(
-                                    name: '',
-                                    email: emailcontroler.text,
-                                    password: passwordcontroler.text)),
-                            (route) => false);
+                        Get.off(VerificationScreen(
+                          phonenumber: phonecontroler.text,
+                        ));
                       }
                     },
                   ),

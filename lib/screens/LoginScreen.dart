@@ -1,13 +1,14 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mylogin/colors.dart';
-import 'package:mylogin/main.dart';
 import 'package:mylogin/screens/Forgotpassword.dart';
 import 'package:mylogin/screens/HomeScreen.dart';
 import 'package:mylogin/screens/SignupScreen.dart';
 import 'package:mylogin/widgets/MyButton.dart';
 import 'package:mylogin/widgets/MyTextField.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
@@ -30,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.transparent,
         leading: GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            Get.back();
           },
           child: Padding(
             padding: const EdgeInsets.all(9.0),
@@ -102,33 +103,31 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 40),
                   MyButton(
-                    mybtntext: 'Login',
-                    mybtntextcolor: Colors.white,
-                    mybtncolor: Myblue,
-                    mybtnbordercolor: Colors.transparent,
-                    mybtnborderwidth: 0.0,
-                    mybtnclicked: () {
-                      final isvalidate = keyform.currentState!.validate();
+                      mybtntext: 'Login',
+                      mybtntextcolor: Colors.white,
+                      mybtncolor: Myblue,
+                      mybtnbordercolor: Colors.transparent,
+                      mybtnborderwidth: 0.0,
+                      mybtnclicked: () {
+                        final isvalidate = keyform.currentState!.validate();
 
-                      if (isvalidate) {
-                        Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen(
-                                    name: '',
-                                    email: emailcontroler.text,
-                                    password: passwordcontroler.text)),
-                            (route) => false);
-                      }
-                    },
-                  ),
+                        if (isvalidate) {
+                          Get.offAll(
+                            HomeScreen(
+                              name: '',
+                              email: emailcontroler.text,
+                              password: passwordcontroler.text,
+                            ),
+                          );
+                        }
+                      }),
                   SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ForgotpasswordScreen()));
+                          Get.to(ForgotpasswordScreen());
                         },
                         child: Text(
                           'Forgot password ?',
@@ -156,15 +155,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          launchUrlString('https://www.google.com/');
+                        },
                         child: SvgPicture.asset('images/google.svg'),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          launchUrlString('https://www.facebook.com/');
+                        },
                         child: SvgPicture.asset('images/facebook.svg'),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          launchUrlString('https://www.icloud.com/?id=123');
+                        },
                         child: SvgPicture.asset('images/apple.svg'),
                       ),
                     ],
@@ -177,8 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(width: 7),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => SignupScreen()));
+                          Get.off(SignupScreen());
                         },
                         child: Text(
                           'Sign up',

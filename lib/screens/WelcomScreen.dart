@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mylogin/colors.dart';
 import 'package:mylogin/screens/LoginScreen.dart';
 import 'package:mylogin/screens/SignupScreen.dart';
@@ -34,9 +35,7 @@ class WelcomScreen extends StatelessWidget {
             SizedBox(height: 50),
             MyButton(
               mybtnclicked: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
+                Get.to(LoginScreen());
               },
               mybtntext: 'login',
               mybtncolor: Myblue,
@@ -47,8 +46,7 @@ class WelcomScreen extends StatelessWidget {
             SizedBox(height: 15),
             MyButton(
               mybtnclicked: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => SignupScreen()));
+                Get.to(SignupScreen());
               },
               mybtntext: 'signup',
               mybtntextcolor: Myblue,
