@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// ignore_for_file: must_be_immutable, file_names
 
-import '../colors.dart';
+import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   final String mybtntext;
@@ -27,15 +25,6 @@ class MyButton extends StatelessWidget {
     return GestureDetector(
       onTap: mybtnclicked,
       child: Container(
-        child: Center(
-          child: Text(
-            mybtntext.toUpperCase(),
-            style: TextStyle(
-              color: mybtntextcolor,
-              fontSize: 18,
-            ),
-          ),
-        ),
         height: 55,
         width: double.infinity,
         decoration: BoxDecoration(
@@ -44,6 +33,15 @@ class MyButton extends StatelessWidget {
           border: Border.all(
             color: mybtnbordercolor,
             width: mybtnborderwidth,
+          ),
+        ),
+        child: Center(
+          child: Text(
+            mybtntext.toUpperCase(),
+            style: TextStyle(
+              color: mybtntextcolor,
+              fontSize: 18,
+            ),
           ),
         ),
       ),

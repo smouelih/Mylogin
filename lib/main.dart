@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:mylogin/screens/WelcomScreen.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Changa',
         primarySwatch: Colors.blue,
       ),
-      home: WelcomScreen(),
+      home: const WelcomScreen(),
     );
   }
 }

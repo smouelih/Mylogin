@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mylogin/colors.dart';
@@ -63,7 +65,7 @@ class VerificationScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'We just send a code to ${phonenumber}',
+                    'We just send a code to $phonenumber',
                     style: const TextStyle(
                       fontSize: 14,
                       letterSpacing: 1.7,

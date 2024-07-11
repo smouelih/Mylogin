@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -66,7 +68,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   MyTextField(
                     mycontroler: namecontroler,
                     mytextfieldtext: 'Enter your name',
@@ -77,7 +79,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       }
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   MyTextField(
                     mycontroler: emailcontroler,
                     myvalidate: (email) {
@@ -93,7 +95,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     showpass: false,
                     mytextfieldtext: 'Enter your email',
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   MyTextField(
                     mycontroler: passwordcontroler,
                     myvalidate: (pass) {
@@ -112,7 +114,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       });
                     },
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   MyButton(
                     mybtntext: 'Signup',
                     mybtntextcolor: Colors.white,
@@ -133,8 +135,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       }
                     },
                   ),
-                  SizedBox(height: 20),
-                  Row(
+                  const SizedBox(height: 20),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('Login with social media'),
@@ -163,15 +165,15 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Allredy have an account?'),
-                      SizedBox(width: 7),
+                      const Text('Allredy have an account?'),
+                      const SizedBox(width: 7),
                       GestureDetector(
                         onTap: () {
-                          Get.off(LoginScreen());
+                          Get.off(const LoginScreen());
                         },
                         child: Text(
                           'Log in',

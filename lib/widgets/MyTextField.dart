@@ -1,7 +1,7 @@
+// ignore_for_file: unnecessary_import, must_be_immutable, prefer_typing_uninitialized_variables, file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../colors.dart';
 
 class MyTextField extends StatelessWidget {
   int? maxletter;
@@ -39,7 +39,7 @@ class MyTextField extends StatelessWidget {
           child: Icon(mysufixicon),
         ),
         hintText: mytextfieldtext,
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: Colors.black,
         ),
       ),

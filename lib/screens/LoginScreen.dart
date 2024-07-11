@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,7 +13,7 @@ import 'package:mylogin/widgets/MyTextField.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -66,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   MyTextField(
                     mycontroler: emailcontroler,
                     myvalidate: (email) {
@@ -82,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     showpass: false,
                     mytextfieldtext: 'Enter your email',
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   MyTextField(
                     mycontroler: passwordcontroler,
                     myvalidate: (pass) {
@@ -101,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                     },
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   MyButton(
                       mybtntext: 'Login',
                       mybtntextcolor: Colors.white,
@@ -121,15 +123,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           );
                         }
                       }),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Get.to(ForgotpasswordScreen());
+                          Get.to(const ForgotpasswordScreen());
                         },
-                        child: Text(
+                        child: const Text(
                           'Forgot password ?',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -138,14 +140,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('-Or-'),
                     ],
                   ),
-                  SizedBox(height: 40),
-                  Row(
+                  const SizedBox(height: 40),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('Login with social media'),
@@ -174,15 +176,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Don\' have an account?'),
-                      SizedBox(width: 7),
+                      const Text('Don\' have an account?'),
+                      const SizedBox(width: 7),
                       GestureDetector(
                         onTap: () {
-                          Get.off(SignupScreen());
+                          Get.off(const SignupScreen());
                         },
                         child: Text(
                           'Sign up',

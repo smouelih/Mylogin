@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -21,21 +23,21 @@ class WelcomScreen extends StatelessWidget {
               'images/pic.svg',
               height: 350,
             ),
-            Text(
+            const Text(
               'Hello !',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
+            const Text(
               'The best place to write life stories and share your journey experience',
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             MyButton(
               mybtnclicked: () {
-                Get.to(LoginScreen());
+                Get.to(const LoginScreen());
               },
               mybtntext: 'login',
               mybtncolor: Myblue,
@@ -43,10 +45,10 @@ class WelcomScreen extends StatelessWidget {
               mybtnbordercolor: Myblue,
               mybtnborderwidth: 0.0,
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             MyButton(
               mybtnclicked: () {
-                Get.to(SignupScreen());
+                Get.to(const SignupScreen());
               },
               mybtntext: 'signup',
               mybtntextcolor: Myblue,

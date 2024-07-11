@@ -1,15 +1,15 @@
-import 'package:email_validator/email_validator.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mylogin/colors.dart';
-import 'package:mylogin/screens/HomeScreen.dart';
 import 'package:mylogin/screens/VerificationScreen.dart';
 import 'package:mylogin/widgets/MyButton.dart';
 import 'package:mylogin/widgets/MyTextField.dart';
 
 class ForgotpasswordScreen extends StatefulWidget {
-  ForgotpasswordScreen({super.key});
+  const ForgotpasswordScreen({super.key});
 
   @override
   State<ForgotpasswordScreen> createState() => _ForgotpasswordScreenState();
@@ -65,7 +65,7 @@ class _ForgotpasswordScreenState extends State<ForgotpasswordScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   MyTextField(
                     mycontroler: phonecontroler,
                     myvalidate: (phone) {
@@ -82,15 +82,15 @@ class _ForgotpasswordScreenState extends State<ForgotpasswordScreen> {
                   MyTextField(
                     maxletter: 5,
                     mykeyboardtype: TextInputType.emailAddress,
-                    myvalidate: (test){
-                      if (test.isEmpty){
+                    myvalidate: (test) {
+                      if (test.isEmpty) {
                         return 'text';
                       }
                     },
                     mytextfieldtext: 'test',
                     showpass: false,
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   MyButton(
                     mybtntext: 'send ->',
                     mybtntextcolor: Colors.white,
