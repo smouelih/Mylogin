@@ -11,9 +11,9 @@
 <h3 align="left">Support:</h3>
 <p><a href="https://www.buymeacoffee.com/smou3lih"> <img align="top" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="smou3lih" /></a></p><br><br>
 
-<img align="left" alt="Coding" width="300" src="https://github.com/user-attachments/assets/1d5bd409-1461-4d66-96b3-7121a7b97756">
-<img align="left" alt="Coding" width="300" src="https://github.com/user-attachments/assets/8ba66e2e-318b-4451-8a94-a39bda4a6910">
-<img align="left" alt="Coding" width="300" src="https://github.com/user-attachments/assets/1a2cb5a4-bb42-4e09-ab3b-03fa998ecc68">
+<img align="left" alt="Coding" width="150" src="https://github.com/user-attachments/assets/1d5bd409-1461-4d66-96b3-7121a7b97756">
+<img align="left" alt="Coding" width="150" src="https://github.com/user-attachments/assets/8ba66e2e-318b-4451-8a94-a39bda4a6910">
+<img align="left" alt="Coding" width="150" src="https://github.com/user-attachments/assets/1a2cb5a4-bb42-4e09-ab3b-03fa998ecc68">
 
 
 
